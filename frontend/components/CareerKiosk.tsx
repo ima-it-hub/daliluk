@@ -185,40 +185,24 @@ export default function CareerKiosk() {
     <main className="relative min-h-screen overflow-hidden">
       <div className="pointer-events-none absolute inset-0">
         <Image
-          src="/gallery/warehouse.jpg"
+          src="/gallery/Boussole2.png"
           alt=""
           fill
           priority
-          className="object-cover opacity-30"
+          className="object-cover"
         />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(0,132,214,0.35),transparent_40%),radial-gradient(circle_at_80%_0%,rgba(58,180,240,0.25),transparent_35%),linear-gradient(180deg,#061224f2,#061224ea_45%,#0b1f3af0)]" />
+        <div className="absolute inset-0 bg-[#061224]/45" />
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col px-4 py-5 sm:px-8 sm:py-8">
-        <header className="mb-6 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-4">
-            <div className="rounded-2xl bg-white/95 p-2 shadow-lg shadow-cyan-500/10">
-              <Image
-                src="/ima.jpg"
-                alt="IMA Plomberie"
-                width={160}
-                height={90}
-                className="h-12 w-auto object-contain sm:h-16"
-                priority
-              />
-            </div>
-            <div>
-              <p className="text-xs font-semibold tracking-wide text-cyan-200 sm:text-sm">
-                صالون التوظيف
-              </p>
-              <h1 className="text-lg font-bold text-white sm:text-2xl">
-                بوصلة طموحك
-              </h1>
-            </div>
+        <header className="mb-6">
+          <div className="mb-2 flex items-center gap-2 whitespace-nowrap text-white">
+            <p className="text-base font-semibold tracking-wide text-cyan-200 sm:text-lg">
+              صالون التوظيف
+            </p>
+            <span aria-hidden="true" className="text-cyan-200/70">·</span>
+            <h1 className="text-xl font-bold sm:text-2xl">بوصلة طموحك</h1>
           </div>
-          <p className="hidden max-w-xs text-left text-sm text-cyan-100/80 md:block">
-            دليلك نحو وظيفة أنسب داخل IMA Plomberie
-          </p>
         </header>
 
         <AnimatePresence mode="wait">
@@ -230,11 +214,12 @@ export default function CareerKiosk() {
               exit={{ opacity: 0, y: -12 }}
               className="grid flex-1 gap-6 lg:grid-cols-[1.15fr_0.85fr]"
             >
-              <div className="rounded-3xl border border-white/15 bg-white/10 p-6 shadow-2xl backdrop-blur-xl sm:p-10">
-                <span className="inline-flex items-center gap-2 rounded-full bg-cyan-400/15 px-4 py-2 text-sm text-cyan-100">
+              <div className="relative rounded-3xl border border-white/15 bg-white/10 px-6 pb-6 pt-20 shadow-2xl backdrop-blur-xl sm:px-10 sm:pb-10 sm:pt-24">
+                <HangingLogo />
+                {/* <span className="inline-flex items-center gap-2 rounded-full bg-cyan-400/15 px-4 py-2 text-sm text-cyan-100">
                   <Compass className="h-4 w-4" />
                   تقييم شخصي تفاعلي
-                </span>
+                </span> */}
                 <h2 className="mt-5 text-3xl font-extrabold leading-snug text-white sm:text-5xl">
                   اكتشف المنصب الذي يناسب شخصيتك المهنية
                 </h2>
@@ -246,7 +231,7 @@ export default function CareerKiosk() {
                 <div className="mt-8 grid gap-3 sm:grid-cols-3">
                   {[
                     "البيانات الشخصية",
-                    "10 أسئلة سريعة",
+                    "8 أسئلة سريعة",
                     "النتيجة على واتساب",
                   ].map((item, index) => (
                     <div
@@ -306,14 +291,16 @@ export default function CareerKiosk() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
-              className="flex flex-1 flex-col rounded-3xl border border-white/15 bg-white/10 p-5 shadow-2xl backdrop-blur-xl sm:p-8"
+              className="relative flex flex-1 flex-col rounded-3xl border border-white/15 bg-white/10 px-5 pb-5 pt-20 shadow-2xl backdrop-blur-xl sm:px-8 sm:pb-8 sm:pt-24"
             >
+              <HangingLogo />
+              <br/>
               <div className="mb-6">
                 <div className="mb-2 flex items-center justify-between text-sm text-cyan-100">
                   <span>
                     {step === 0
-                      ? "الخطوة 1 من 11 — الملف الشخصي"
-                      : `السؤال ${step} من 10`}
+                      ? "الخطوة 1 من 9 — الملف الشخصي"
+                      : `السؤال ${step} من 9`}
                   </span>
                   <span>{Math.round(progress)}%</span>
                 </div>
@@ -546,7 +533,8 @@ export default function CareerKiosk() {
               animate={{ opacity: 1, y: 0 }}
               className="grid flex-1 gap-6 lg:grid-cols-[0.9fr_1.1fr]"
             >
-              <div className="rounded-3xl border border-white/15 bg-white/10 p-6 backdrop-blur-xl sm:p-8">
+              <div className="relative rounded-3xl border border-white/15 bg-white/10 px-6 pb-6 pt-20 backdrop-blur-xl sm:px-8 sm:pb-8 sm:pt-24">
+                <HangingLogo />
                 <p className="text-cyan-200">نتيجة بوصلة طموحك</p>
                 <h2 className="mt-2 text-3xl font-extrabold sm:text-4xl">
                   {profile.fullName}
@@ -613,6 +601,21 @@ export default function CareerKiosk() {
         </AnimatePresence>
       </div>
     </main>
+  );
+}
+
+function HangingLogo() {
+  return (
+    <div className="absolute left-1/2 top-0 z-10 -translate-x-1/2 rounded-b-xl bg-white px-3 pb-1 pt-1 shadow-lg sm:px-4">
+      <Image
+        src="/ima.jpg"
+        alt="IMA Plomberie"
+        width={160}
+        height={90}
+        className="h-auto w-[112px] object-contain sm:w-32"
+        priority
+      />
+    </div>
   );
 }
 
