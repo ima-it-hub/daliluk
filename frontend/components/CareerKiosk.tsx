@@ -258,7 +258,7 @@ export default function CareerKiosk() {
                 </button>
               </div>
 
-              <div className="grid grid-cols-2 grid-rows-2 gap-3">
+              {/* <div className="grid grid-cols-2 grid-rows-2 gap-3">
                 {[
                   ["/gallery/images_1.jpeg", "وصلات وأنابيب PPR"],
                   ["/gallery/images_2.jpeg", "خرطوم دش مرن"],
@@ -281,7 +281,7 @@ export default function CareerKiosk() {
                     </figcaption>
                   </figure>
                 ))}
-              </div>
+              </div> */}
             </motion.section>
           )}
 
