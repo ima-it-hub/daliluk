@@ -212,46 +212,53 @@ export default function CareerKiosk() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
-              className="grid flex-1 gap-6 lg:grid-cols-[1.15fr_0.85fr]"
+              className="flex flex-1 flex-col"
             >
-              <div className="relative rounded-3xl border border-white/15 bg-white/10 px-6 pb-6 pt-20 shadow-2xl backdrop-blur-xl sm:px-10 sm:pb-10 sm:pt-24">
+              <div className="relative w-full max-w-4xl self-center rounded-3xl border border-white/15 bg-white/10 px-6 pb-6 pt-20 shadow-2xl backdrop-blur-xl sm:px-10 sm:pb-8 sm:pt-24">
                 <HangingLogo />
                 {/* <span className="inline-flex items-center gap-2 rounded-full bg-cyan-400/15 px-4 py-2 text-sm text-cyan-100">
                   <Compass className="h-4 w-4" />
                   تقييم شخصي تفاعلي
                 </span> */}
-                <h2 className="mt-5 text-3xl font-extrabold leading-snug text-white sm:text-5xl">
+                <h2 className="mt-5 text-center text-3xl font-extrabold leading-snug text-white sm:text-5xl">
                   اكتشف المنصب الذي يناسب شخصيتك المهنية
                 </h2>
-                <p className="mt-4 max-w-2xl text-base leading-8 text-slate-200 sm:text-lg">
+                <p className="mx-auto mt-4 max-w-2xl text-center text-base leading-8 text-slate-200 sm:text-lg">
                   خلال دقائق، نجمع ملفاً مختصراً عنك ثم نمرّ على عشر أسئلة متعددة
                   الاختيارات. الذكاء الاصطناعي يحلّل أسلوب عملك ويرسل التوصية
                   مباشرة إلى حساب واتسابك.
                 </p>
-                <div className="mt-8 grid gap-3 sm:grid-cols-3">
+              </div>
+
+              <div className="mt-auto flex flex-col items-center gap-5 pb-2 pt-8 sm:flex-row sm:justify-center sm:gap-8">
+                <div className="flex items-center gap-4">
                   {[
-                    "البيانات الشخصية",
-                    "8 أسئلة سريعة",
-                    "النتيجة على واتساب",
-                  ].map((item, index) => (
+                    { label: "البيانات الشخصية", Icon: UserRound },
+                    { label: "8 أسئلة سريعة", Icon: Compass },
+                    { label: "النتيجة على واتساب", Icon: MessageCircle },
+                  ].map(({ label, Icon }, index) => (
                     <div
-                      key={item}
-                      className="relative rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-center"
+                      key={label}
+                      aria-label={label}
+                      title={label}
+                      className="flex items-center gap-3 text-cyan-100"
                     >
-                      {index < 2 && (
-                        <ArrowLeft className="absolute -left-5 top-1/2 hidden h-4 w-4 -translate-y-1/2 text-cyan-200/70 sm:block" />
-                      )}
-                      <span className="mx-auto mb-3 grid h-9 w-9 place-items-center rounded-full border border-cyan-200/40 bg-cyan-300/10 text-sm font-bold text-cyan-200 shadow-[0_0_16px_rgba(58,180,240,0.12)]">
-                        {String(index + 1).padStart(2, "0")}
+                      <span className="grid h-10 w-10 place-items-center rounded-full border border-cyan-200/50 bg-white/10">
+                        <Icon className="h-5 w-5" />
                       </span>
-                      <p className="font-semibold">{item}</p>
+                      {index < 2 && (
+                        <ArrowLeft
+                          aria-hidden="true"
+                          className="h-4 w-4 text-cyan-200/80"
+                        />
+                      )}
                     </div>
                   ))}
                 </div>
                 <button
                   type="button"
                   onClick={() => setPhase("form")}
-                  className="mt-10 inline-flex min-h-14 items-center gap-3 rounded-2xl bg-gradient-to-l from-[#0084d6] to-[#3ab4f0] px-8 text-lg font-bold text-white shadow-lg shadow-cyan-500/30 transition hover:brightness-110"
+                  className="inline-flex min-h-14 items-center gap-3 rounded-2xl bg-gradient-to-l from-[#0084d6] to-[#3ab4f0] px-8 text-lg font-bold text-white shadow-lg shadow-cyan-500/30 transition hover:brightness-110"
                 >
                   ابدأ التقييم
                   <ArrowLeft className="h-5 w-5" />
