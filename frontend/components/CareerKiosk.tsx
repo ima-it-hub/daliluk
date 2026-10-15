@@ -196,12 +196,12 @@ export default function CareerKiosk() {
 
       <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col px-4 py-5 sm:px-8 sm:py-8">
         <header className="mb-6">
-          <div className="mb-2 flex items-center gap-2 whitespace-nowrap text-white">
-            <p className="text-base font-semibold tracking-wide text-cyan-200 sm:text-lg">
+          <div className="mb-2 flex items-center justify-center gap-2 whitespace-nowrap text-white">
+            <p className="text-[17px] font-semibold tracking-wide text-cyan-200 sm:text-xl">
               صالون التوظيف
             </p>
             <span aria-hidden="true" className="text-cyan-200/70">·</span>
-            <h1 className="text-xl font-bold sm:text-2xl">بوصلة طموحك</h1>
+            <h1 className="text-[22px] font-bold sm:text-[28px]">بوصلة طموحك</h1>
           </div>
         </header>
 

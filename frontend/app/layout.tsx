@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Cairo } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const cairo = Cairo({
-  subsets: ["arabic", "latin"],
-  variable: "--font-cairo",
+const bahij = localFont({
+  src: "../public/fonts/Bahij TheSansArabic.ttf",
   display: "swap",
 });
 
@@ -19,8 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl" className={cairo.variable}>
-      <body className={`${cairo.className} antialiased`}>{children}</body>
+    <html lang="ar" dir="rtl">
+      <body className={`${bahij.className} antialiased`}>{children}</body>
     </html>
   );
 }
